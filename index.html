@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Anh xin lỗi Trân</title>
+  <style>
+    :root{
+      --bg1: #0f172a;
+      --bg2: #071029;
+      --card: rgba(255,255,255,0.06);
+      --accent1: #ff6b81;
+      --accent2: #ffb86b;
+      --glass: rgba(255,255,255,0.06);
+      --glass-strong: rgba(255,255,255,0.10);
+      --text: #e6eef8;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: radial-gradient(1200px 600px at 10% 20%, rgba(255,107,129,0.08), transparent),
+                  radial-gradient(1000px 500px at 90% 80%, rgba(255,184,107,0.06), transparent),
+                  linear-gradient(180deg,var(--bg1),var(--bg2));
+      color:var(--text);
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:24px;
+    }
+
+    .card{
+      width:min(920px,96%);
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
+      border-radius:18px;
+      padding:28px;
+      box-shadow: 0 10px 30px rgba(2,6,23,0.6);
+      display:grid;
+      grid-template-columns: 1fr 360px;
+      gap:24px;
+      align-items:center;
+      backdrop-filter: blur(6px) saturate(120%);
+      border:1px solid var(--glass-strong);
+    }
+
+    .left{
+      padding:12px 6px;
+    }
+
+    h1{
+      margin:0 0 8px 0;
+      font-size: clamp(28px, 4vw, 48px);
+      line-height:1.02;
+      letter-spacing:-0.02em;
+      background: linear-gradient(90deg,var(--accent1),var(--accent2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color:transparent;
+      filter: drop-shadow(0 6px 18px rgba(255,107,129,0.12));
+      transform-origin:center left;
+      animation: popIn 700ms cubic-bezier(.2,.9,.2,1) both;
+    }
+
+    @keyframes popIn{
+      from{opacity:0; transform: translateY(12px) scale(.98)}
+      to{opacity:1; transform: translateY(0) scale(1)}
+    }
+
+    p.lead{
+      margin:10px 0 18px 0;
+      color: rgba(230,238,248,0.9);
+      font-size:16px;
+      line-height:1.6;
+    }
+
+    .apology-box{
+      background: rgba(255,255,255,0.02);
+      border-radius:12px;
+      padding:16px;
+      border:1px solid rgba(255,255,255,0.03);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
+    }
+
+    .heart{
+      width:86px;height:86px;border-radius:18px;display:flex;align-items:center;justify-content:center;margin-bottom:12px;
+      background: linear-gradient(135deg, rgba(255,107,129,0.14), rgba(255,184,107,0.08));
+      box-shadow: 0 8px 30px rgba(16,24,40,0.6);
+      margin-left:auto;margin-right:auto;
+    }
+
+    .heart svg{filter:drop-shadow(0 6px 24px rgba(255,107,129,0.08)); animation: beat 1.25s infinite ease-in-out;}
+    @keyframes beat{
+      0%{transform:scale(1)}
+      25%{transform:scale(1.08)}
+      45%{transform:scale(1)}
+      70%{transform:scale(1.04)}
+      100%{transform:scale(1)}
+    }
+
+    .right{
+      padding:18px;
+      display:flex;flex-direction:column;align-items:center;justify-content:center;
+      gap:12px;
+    }
+
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;padding:12px 18px;border-radius:10px;border:0;cursor:pointer;font-weight:600;font-size:15px;
+      background: linear-gradient(90deg,var(--accent1),var(--accent2));color:white;box-shadow:0 8px 20px rgba(255,107,129,0.12);
+    }
+
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text);font-weight:600}
+
+    .small{font-size:13px;color:rgba(230,238,248,0.7)}
+
+    .hidden{display:none}
+
+    footer{margin-top:18px;font-size:13px;color:rgba(230,238,248,0.6)}
+
+    @media (max-width:880px){
+      .card{grid-template-columns:1fr; padding:20px}
+      .right{order:-1}
+    }
+
+    .confetti{position:fixed;left:0;top:0;right:0;bottom:0;pointer-events:none;overflow:hidden}
+    .confetti .c{position:absolute;width:10px;height:16px;opacity:0.9;will-change:transform;transform-origin:center}
+  </style>
+</head>
+<body>
+  <div class="confetti" id="confetti"></div>
+
+  <main class="card" role="main" aria-labelledby="title">
+    <section class="left">
+      <h1 id="title">Anh xin lỗi, Trân</h1>
+      <p class="lead">Trân à, anh biết anh đã làm em buồn vì những lời nói nặng nề. Anh thật sự hối hận và muốn em hiểu rằng, anh chỉ quá lo lắng và tức giận.</p>
+
+      <div class="apology-box">
+        <p style="margin:0 0 8px 0"><strong>Lý do:</strong></p>
+        <p class="small" id="reason">Anh đã nóng giận và nói những lời không nên nói. Anh biết điều đó khiến em tổn thương, và anh thành thật xin lỗi.</p>
+
+        <p style="margin:12px 0 6px 0"><strong>Hành động anh sẽ làm:</strong></p>
+        <ul style="margin:0 0 0 18px;color:rgba(230,238,248,0.85)">
+          <li>Kiểm soát cảm xúc tốt hơn, không để sự nóng giận khiến em buồn.</li>
+          <li>Lắng nghe em nhiều hơn thay vì vội vàng phản ứng.</li>
+          <li>Anh hứa sẽ thay đổi từ từ đừng buồn em nhen.</li>
+        </ul>
+      </div>
+
+      <footer>Cái này chỉ dành cho em, Trân ❤️</footer>
+    </section>
+
+    <aside class="right">
+      <div class="heart" aria-hidden="true">
+        <svg width="46" height="46" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 21s-7.5-4.35-9.5-7.5C.9 9.82 4.5 5 8.5 5c2.08 0 3.5 1.46 3.5 1.46S14.42 5 16.5 5C20.5 5 24.1 9.82 21.5 13.5 19.5 16.65 12 21 12 21z" fill="url(#g)" stroke="rgba(255,255,255,0.12)" stroke-width="0.5"/>
+          <defs>
+            <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+              <stop offset="0" stop-color="#ff6b81"/>
+              <stop offset="1" stop-color="#ffb86b"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
+      <div style="text-align:center">
+        <button class="btn" id="accept">Chấp nhận lời xin lỗi</button>
+        <button class="btn ghost" id="later">Cần thời gian</button>
+      </div>
+
+      <p class="small" id="response" style="text-align:center;margin-top:10px"> </p>
+    </aside>
+  </main>
+
+  <script>
+    function makeConfetti(){
+      const container = document.getElementById('confetti');
+      const colors = ['#ff6b81','#ffb86b','#8be9fd','#caa6ff','#ffd6ea'];
+      for(let i=0;i<24;i++){
+        const el = document.createElement('div');
+        el.className='c';
+        el.style.left = Math.random()*100 + '%';
+        el.style.top = '-10%';
+        el.style.background = colors[Math.floor(Math.random()*colors.length)];
+        el.style.transform = `rotate(${Math.random()*360}deg)`;
+        el.style.opacity = Math.random()*0.9+0.3;
+        el.style.width = (6+Math.random()*12)+'px';
+        el.style.height = (8+Math.random()*18)+'px';
+        container.appendChild(el);
+        const delay = Math.random()*800;
+        (function(a){
+          setTimeout(()=>{
+            a.animate([
+              {transform:'translateY(0) rotate(0deg)', opacity:a.style.opacity},
+              {transform:`translateY(${80+Math.random()*800}px) rotate(${Math.random()*720}deg)`, opacity:0}
+            ],{duration:3000+Math.random()*2200, easing:'cubic-bezier(.2,.8,.2,1)'});
+            setTimeout(()=>a.remove(), 5000);
+          }, delay);
+        })(el);
+      }
+    }
+
+    document.getElementById('accept').addEventListener('click', ()=>{
+      makeConfetti();
+      const res = document.getElementById('response');
+      res.textContent = 'Cảm ơn em, Trân. Anh hứa sẽ thay đổi và yêu thương em nhiều hơn.';
+      res.style.color = 'white';
+      document.getElementById('accept').disabled = true;
+      document.getElementById('accept').textContent = 'Đã chấp nhận ❤️';
+    });
+
+    document.getElementById('later').addEventListener('click', ()=>{
+      const res = document.getElementById('response');
+      res.textContent = 'Anh hiểu, anh sẽ từ từ khắc phục.';
+      res.style.color = 'rgba(230,238,248,0.9)';
+    });
+
+    window.addEventListener('load', ()=>{
+      setTimeout(()=>document.querySelector('h1').style.transform='translateY(0)',220);
+    });
+  </script>
+</body>
+</html>
